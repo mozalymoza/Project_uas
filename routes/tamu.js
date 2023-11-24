@@ -21,12 +21,14 @@ router.get('/', function (req, res) {
 });
 
 // untuk membuat data baru tamu kapal
-router.post('/store', [
+router.post('/store'
+, [
     body('Nama_tamu').notEmpty(),
     body('Alamat_tamu').notEmpty(),
     body('Email').notEmpty(),
     body('No_Tlp').notEmpty(),
-],(req, res) => {
+],
+(req, res) => {
     const error = validationResult(req);
     if(!error.isEmpty()){
         return res.status(422).json({

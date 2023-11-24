@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const cors = require('cors')
+
+app.use(cors())
+
 
 const bodyPs = require('body-parser');
 app.use(bodyPs.urlencoded({ extended: false}));
@@ -28,11 +32,6 @@ app.use('/api/pemesanan',pemesananRouter);
 //import routes hotel
 const hotelRouter = require('./routes/hotel');
 app.use('/api/hotel',hotelRouter);
-
-
-
-
-
 
 
 app.listen(port,() => {
